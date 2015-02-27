@@ -1,0 +1,2 @@
+# iyi
+youdao dictionary terminal
