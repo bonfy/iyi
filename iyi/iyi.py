@@ -1,9 +1,5 @@
 # coding:utf-8
-
 import sys
-reload(sys)
-sys.setdefaultencoding("utf-8")
-
 import requests
 import getopt
 from termcolor import colored
@@ -19,22 +15,22 @@ def get_response(word):
 
 def show(response):
     if response['errorCode'] is not 0:
-        print colored('query error,please try again', 'cyan')
+        print(colored('query error,please try again', 'cyan'))
     else:
-        print colored('查询: {}'.format(response['query']), 'green')
+        print(colored('查询: {}'.format(response['query']), 'green'))
 
-        print colored('释义: '+'\t'.join(response['translation']), 'cyan')
+        print(colored('释义: '+'\t'.join(response['translation']), 'cyan'))
 
         if 'basic' in response.keys():
             basic = response['basic']
-            print colored('基本词典:', 'blue')
-            print colored('\n'.join(basic['explains']), 'cyan')
+            print(colored('基本词典:', 'blue'))
+            print(colored('\n'.join(basic['explains']), 'cyan'))
         if 'web' in response.keys():
             web = response['web']
-            print colored('网络词典:', 'blue')
+            print(colored('网络词典:', 'blue'))
             for item in web:
-                print colored(item['key'], 'green')
-                print colored('\t'.join(item['value']), 'cyan')
+                print(colored(item['key'], 'green'))
+                print(colored('\t'.join(item['value']), 'cyan'))
 
 def main():
     try:
