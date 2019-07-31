@@ -4,3 +4,5 @@
 dist
 build
 eggs
+
+__pycache__/
